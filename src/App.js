@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="">
       <h1 className="text-center">Welcome to ZIM-ZAM</h1>
+      lets start
     </div>
   );
 }
