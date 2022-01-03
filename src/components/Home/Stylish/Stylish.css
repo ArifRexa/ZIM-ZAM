@@ -11,6 +11,10 @@
 .stylish button{
     margin-top: 5px;
     margin-bottom: 30px;
+    border: 1px solid grey;
+    background-color: rgb(87, 52, 52);
+    padding:10px 50px;
+    border-radius: 40px;
 }
 .up-image img{
     width: 70%;

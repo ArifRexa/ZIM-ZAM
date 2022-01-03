@@ -16,6 +16,15 @@
     margin-top: 80px;
 }
 
+.conte button{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    border: 1px solid grey;
+    background-color: rgb(87, 52, 52);
+    padding:10px 50px;
+    border-radius: 40px;
+}
+
 @media only screen and (max-width: 688px) {
     .conte p{
         width: 90%;
