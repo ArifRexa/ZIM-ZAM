@@ -1,0 +1,27 @@
+.conte h1{
+    font-size: 50px;
+    color: #493F65;
+}
+.conte p{
+    font-weight: 500;
+    font-size: 15px;
+}
+.conte-image img{
+    width: 70%;
+}
+.conte{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+@media only screen and (max-width: 688px) {
+    .conte p{
+        width: 90%;
+        text-align: justify;
+    }
+    .conte h1{
+        font-size: 30px;
+    }
+}

@@ -17,4 +17,11 @@
 }
 .stylish{
     text-align: left;
+    margin-top: 70px;
+}
+
+@media only screen and (max-width: 688px) {
+    .stylish h1{
+        font-size:40px  
+    }
 }
