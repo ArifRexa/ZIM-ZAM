@@ -1,8 +1,12 @@
 import React from 'react';
+import Footer from '../../common/Footer/Footer';
 import Banner from '../Banner/Banner';
 import Contemporary from '../Contemporary/Contemporary';
+import Express from '../Express/Express';
+import Materials from '../Materials/Materials';
 import MethodSection from '../MethodSection/MethodSection';
 import Product from '../Product/Product';
+import ProductDetails from '../ProductDetails/ProductDetails';
 import Stylish from '../Stylish/Stylish';
 import StylishTwo from '../StylishTow/StylishTwo';
 import Upcoming from '../Upcoming/Upcoming';
@@ -17,6 +21,10 @@ const Home = () => {
            <Contemporary></Contemporary>
            <StylishTwo></StylishTwo>
            <MethodSection></MethodSection>
+           <Express></Express>
+           <Materials></Materials>
+           <ProductDetails></ProductDetails>
+           <Footer></Footer>
         </div>
     );
 };
