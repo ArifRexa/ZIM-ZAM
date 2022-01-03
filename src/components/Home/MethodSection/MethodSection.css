@@ -1,0 +1,30 @@
+.method{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+    margin: 0 auto;
+}
+.method i{
+    margin-right: 5px;
+}
+.method p{
+    text-align: justify;
+}
+.first{
+    margin-left: 25px;
+    border: 1px solid grey;
+    border-left: 40px solid yellow;
+    padding: 50px 10px;
+    background-color: #170E30 ;
+    color: white;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 688px) {
+    .method{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .first{
+        margin-top: 20px;
+    }
+}

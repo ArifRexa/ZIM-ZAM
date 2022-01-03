@@ -1,0 +1,10 @@
+.mate-image img{
+    width: 70%;
+    border-radius: 20px;
+}
+.mate-image h1{
+    margin: 0;
+}
+.mate-image p{
+    font-size: 20px;
+}

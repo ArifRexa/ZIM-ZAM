@@ -1,0 +1,14 @@
+.cata{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.cata img{
+    width: 70%;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 688px) {
+    .cata{
+        grid-template-columns: repeat(2,1fr);
+    }
+}

@@ -1,0 +1,31 @@
+.stylish h1{
+    font-size: 50px;
+    color: #493F65;
+    font-weight: 700;
+}
+.stylish p{
+    font-size: 20px;
+    width: 80%;
+    text-align: justify;
+}
+.stylish button{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    border: 1px solid grey;
+    background-color: rgb(87, 52, 52);
+    padding:10px 50px;
+    border-radius: 40px;
+}
+.up-image img{
+    width: 70%;
+}
+.stylish{
+    text-align: left;
+    margin-top: 70px;
+}
+
+@media only screen and (max-width: 688px) {
+    .stylish h1{
+        font-size:40px  
+    }
+}
