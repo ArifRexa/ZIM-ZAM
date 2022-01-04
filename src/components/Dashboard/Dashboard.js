@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch } from 'react-router-dom';
 import {
-    Switch,
-    Route,
-    useRouteMatch
+    Routes,
+    Route
 } from "react-router-dom";
+
 
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
@@ -28,21 +28,21 @@ const DashBoard = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <NavLink as={Link} to="/" style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600"}}>Home</NavLink>
+                    <NavLink as={Link} to="/" style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }}>Home</NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" >
                         <Nav className="me-auto">
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600" }} to="/products">Products</NavLink>
-                            
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight:"600" }} to={`${url}/myorders`}>My Orders</NavLink>
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px",fontWeight:"600" }} to={`${url}/paymentsystem`}>Payment Method</NavLink>
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white" , fontWeight:"600"}} to={`${url}/review`}>Reviews</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to="/products">Products</NavLink>
 
-                            
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to={`${url}/myorders`}>My Orders</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to={`${url}/paymentsystem`}>Payment Method</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", fontWeight: "600" }} to={`${url}/review`}>Reviews</NavLink>
+
+
                         </Nav>
 
                         <Nav>
-                            {admin && <NavDropdown title="Admin Panel" style={{color:"white"}} className="fw-bold active">
+                            {admin && <NavDropdown title="Admin Panel" style={{ color: "white" }} className="fw-bold active">
                                 <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/manageAllOrders`}>Manage All Orders</NavLink><br />
                                 <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/addProducts`}>Add Products</NavLink><br />
                                 <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/makeAdmin`}>Make Admin</NavLink><br />
@@ -54,28 +54,43 @@ const DashBoard = () => {
                 </Container>
             </Navbar>
 
-            <Switch>
-                <Route exact path={path}>
+            <Routes>
+                <Route path={path} element={<MyOrders />} />
+
+                <Route path={`${path}/myorders`} element={<MyOrders />} />
+
+                <AdminRoute path={`${path}/manageAllOrders`} element={<ManageAllOrders />} />
+
+                <AdminRoute path={`${path}/addProducts`} element={<AddProducts />} />
+
+                <AdminRoute path={`${path}/makeAdmin`} element={<MakeAdmin />} />
+                
+                <AdminRoute path={`${path}/manageProducts`} element={<ManageProducts />} />
+
+
+
+                {/* <Route exact path={path}>
                     <MyOrders></MyOrders>
                 </Route>
                 <Route path={`${path}/myorders`}>
                     <MyOrders></MyOrders>
-                </Route>
+                </Route> */}
 
-                <AdminRoute path={`${path}/manageAllOrders`}>
+                {/* <AdminRoute path={`${path}/manageAllOrders`}>
                     <ManageAllOrders></ManageAllOrders>
-                </AdminRoute>
-                <AdminRoute path={`${path}/addProducts`}>
+                </AdminRoute> */}
+                {/* <AdminRoute path={`${path}/addProducts`}>
                     <AddProducts></AddProducts>
-                </AdminRoute>
+                </AdminRoute> */}
 
-                <AdminRoute path={`${path}/makeAdmin`}>
+                {/* <AdminRoute path={`${path}/makeAdmin`}>
                     <MakeAdmin></MakeAdmin>
-                </AdminRoute>
-                <AdminRoute path={`${path}/manageProducts`}>
+                </AdminRoute> */}
+
+                {/* <AdminRoute path={`${path}/manageProducts`}>
                     <ManageProducts></ManageProducts>
-                </AdminRoute>
-            </Switch>
+                </AdminRoute> */}
+            </Routes>
 
 
 
