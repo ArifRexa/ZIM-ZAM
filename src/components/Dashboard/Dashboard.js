@@ -1,14 +1,15 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink, useRouteMatch } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 import {
     Routes,
     Route
 } from "react-router-dom";
+import useAuth from '../../hooks/useAuth';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
 
 
-import useAuth from '../../../hooks/useAuth';
-import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+
 
 import AddProducts from './AddProducts/Addproducts';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
@@ -17,7 +18,6 @@ import ManageProducts from './ManageProducts/ManageProducts';
 import MyOrders from './MyOrders/MyOrders';
 
 const DashBoard = () => {
-    let { path, url } = useRouteMatch();
     const { admin } = useAuth();
 
     return (
@@ -34,19 +34,19 @@ const DashBoard = () => {
                         <Nav className="me-auto">
                             <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to="/products">Products</NavLink>
 
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to={`${url}/myorders`}>My Orders</NavLink>
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to={`${url}/paymentsystem`}>Payment Method</NavLink>
-                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", fontWeight: "600" }} to={`${url}/review`}>Reviews</NavLink>
+                            <NavLink as={Link} style={{ textDecoration: "none", color: "white", marginRight: "10px", fontWeight: "600" }} to={`/dashboard/myorders`}>My Orders</NavLink>
+                            
+                            
 
 
                         </Nav>
 
                         <Nav>
                             {admin && <NavDropdown title="Admin Panel" style={{ color: "white" }} className="fw-bold active">
-                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/manageAllOrders`}>Manage All Orders</NavLink><br />
-                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/addProducts`}>Add Products</NavLink><br />
-                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/makeAdmin`}>Make Admin</NavLink><br />
-                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`${url}/manageProducts`}>Manage Products</NavLink>
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`/dashboard/manageAllOrders`}>Manage All Orders</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`/dashboard/addProducts`}>Add Products</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`/dashboard/makeAdmin`}>Make Admin</NavLink><br />
+                                <NavLink as={Link} style={{ textDecoration: "none", color: "black", fontWeight: "600", marginLeft: "10px" }} to={`/dashboard/manageProducts`}>Manage Products</NavLink>
                             </NavDropdown>}
                         </Nav>
 
@@ -55,17 +55,17 @@ const DashBoard = () => {
             </Navbar>
 
             <Routes>
-                <Route path={path} element={<MyOrders />} />
+                <Route path="/" element={<MyOrders />} />
 
-                <Route path={`${path}/myorders`} element={<MyOrders />} />
+                <Route path={`/dashboard/myorders`} element={<MyOrders />} />
 
-                <AdminRoute path={`${path}/manageAllOrders`} element={<ManageAllOrders />} />
+                <AdminRoute path={`/dashboard/manageAllOrders`} element={<ManageAllOrders />} />
 
-                <AdminRoute path={`${path}/addProducts`} element={<AddProducts />} />
+                <AdminRoute path={`/dashboard/addProducts`} element={<AddProducts />} />
 
-                <AdminRoute path={`${path}/makeAdmin`} element={<MakeAdmin />} />
+                <AdminRoute path={`/dashboard/makeAdmin`} element={<MakeAdmin />} />
                 
-                <AdminRoute path={`${path}/manageProducts`} element={<ManageProducts />} />
+                <AdminRoute path={`/dashboard/manageProducts`} element={<ManageProducts />} />
 
 
 
