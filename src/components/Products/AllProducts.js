@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import SingleProduct from './SingleProduct';
+import ShowProducts from './ShowProducts';
 
-const Product = () => {
+const AllProducts = () => {
 
     const [products, setProducts] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/product')
             .then(res => res.json())
-            .then(data => setProducts(data.slice(1,7)))
+            .then(data => setProducts(data))
     }, [])
 
 
@@ -19,7 +19,7 @@ const Product = () => {
             <Row xs={1} md={3} className="g-4">
                 
                    {
-                       products.map(product => <SingleProduct product={product}></SingleProduct>)
+                       products.map(product => <ShowProducts product={product}></ShowProducts>)
                    }
                 
             </Row>
@@ -27,4 +27,4 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default AllProducts;
