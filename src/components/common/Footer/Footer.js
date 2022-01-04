@@ -1,12 +1,13 @@
 import React from 'react';
+import './Footer.css'
 
 const Footer = () => {
     return (
-        <div>
-           <div>
+        <div className='foo'>
+           <div className='footer'>
                <div>
                    <h4>About Us</h4>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+                   <p>We've created an automatic About Us Page Generator tool that will give you short, medium, and long versions of About Us page text that you can copy and paste directly onto your website. Just fill in the blanks on the form and get a custom About Us page that you can copy-and-paste directly onto your own website. If you'd rather use a text-based template, there's one below.</p>
                </div>
                <div>
                    <h4>Usefull Links</h4>
@@ -15,9 +16,14 @@ const Footer = () => {
                    <p>Our new product</p>
                    <p>Order tracking</p>
                </div>
-               <div>
+               <div className='link'>
                    <h4>Contact Us</h4>
-                   <span></span>
+                   <span><i class="fab fa-facebook"></i></span>
+                   <span><i class="fab fa-instagram"></i></span>
+                   <span><i class="fab fa-twitter"></i></span>
+                   <span><i class="fab fa-whatsapp"></i></span>
+                   <h3>Email: 123@gmail.com</h3>
+                   <h3>Phone: 017000000</h3>
                </div>
            </div>
         </div>

@@ -1,0 +1,15 @@
+.footer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+.foo{
+    background-color: black;
+    padding: 40px 0;
+}
+.link i{
+    font-size: 40px;
+}

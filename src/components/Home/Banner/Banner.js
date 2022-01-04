@@ -4,7 +4,7 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-        <div style={{marginTop:'40px', backgroundColor:'#4E4664'}}>
+        <div style={{backgroundColor:'#4E4664'}}>
            <div style={{width:'80%', margin:'0 auto', padding:'50px 0'}}>
            <Row>
                 <Col style={{ textAlign: 'left' }} xs={12} md={6}>
