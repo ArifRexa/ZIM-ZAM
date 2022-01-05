@@ -1,21 +1,21 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Redirect, Route } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const PrivetRoute = ({children , ...rest}) => {
     const {user, isLoading} = useAuth();
-    let location = useLocation();
     if (isLoading) {
         return <Spinner className="item-center mt-5" animation="border" variant="info" />
         
     }
-
-    if(user.email){
-        return children
-    }
-    return <Navigate to="/login" state={{from: location}} />
-    
+    return (
+        <Route
+            {...rest}
+            render={({ location }) => user.email ? children : <Redirect to={{ pathname: "/login", state: { from: location } }}>
+            </Redirect>}>
+        </Route>
+    );
 };
 
 export default PrivetRoute;

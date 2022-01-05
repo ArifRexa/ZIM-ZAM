@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const AddProducts = () => {
@@ -16,7 +18,7 @@ const AddProducts = () => {
     }
 
     const handleSubmit = (e) => {
-        const products = {
+        const watches = {
             ...productData
         }
         fetch('https://damp-taiga-56462.herokuapp.com/watches', {
@@ -24,7 +26,7 @@ const AddProducts = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(products)
+            body: JSON.stringify(watches)
         })
             .then(res => res.json())
             .then(data => {
@@ -41,7 +43,7 @@ const AddProducts = () => {
             <h1 className="fw-bold my-5 text-center">Add Products</h1>
             {
                 addConfirmed && <Alert variant="success">
-                    New Product Added successfully !
+                    <FontAwesomeIcon icon={faCheckCircle} /> New Product Added successfully !
                 </Alert>
             }
             <Container className="w-50 ">

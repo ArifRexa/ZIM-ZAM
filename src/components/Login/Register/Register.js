@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, FloatingLabel, Form, Button, Spinner, Alert } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
@@ -8,7 +8,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
-    const navigate = useNavigate()
+    const history = useHistory()
 
     const { user, registerUser, isLoading, error } = useAuth();
 
@@ -37,7 +37,7 @@ const Register = () => {
             return
 
         }
-        registerUser(loginData.email, loginData.password, loginData.name, navigate)
+        registerUser(loginData.email, loginData.password, loginData.name, history)
         alert("submited")
         const users = {
             Name: name,

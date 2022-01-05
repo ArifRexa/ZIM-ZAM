@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-// import initializeFirebase from '../Components/FireBase/Firebase.init';
-import initializeFirebase from "../components/FireBase/Firebase.init"
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, updateProfile, signOut } from "firebase/auth";
+import initializeFirebase from '../Components/FireBase/Firebase.init';
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile, signOut } from "firebase/auth";
 
 
 
@@ -17,7 +16,7 @@ const useFirebase = () => {
   const auth = getAuth();
 
 
-  const registerUser = (email, password, name, navigate) => {
+  const registerUser = (email, password, name, history) => {
     setIsLoading(true)
 
     createUserWithEmailAndPassword(auth, email, password)
@@ -32,7 +31,7 @@ const useFirebase = () => {
         }).catch((error) => {
 
         });
-        navigate("/");
+        history.replace("/");
         verifyMail();
       })
       .catch((error) => {
@@ -48,13 +47,18 @@ const useFirebase = () => {
       })
   }
 
+  // const resetPassword = () => {
+  //   sendPasswordResetEmail(auth, email)
+  //     .then(result => { })
+  // }
 
-  const loginUser = (email, password, location, navigate) => {
+
+  const loginUser = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const path = location?.state?.from || '/';
-        navigate(path);
+        history.replace(path);
         setError('')
       })
       .catch((error) => {
@@ -75,7 +79,7 @@ const useFirebase = () => {
 
     });
     return () => unSubscribe;
-  }, [auth])
+  }, [])
 
 
   useEffect(() => {

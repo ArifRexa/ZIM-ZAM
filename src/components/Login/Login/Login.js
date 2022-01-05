@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, FloatingLabel, Form, Button, Alert, Spinner } from 'react-bootstrap';
-import { NavLink , useLocation, useNavigate} from 'react-router-dom';
+import { NavLink , useLocation, useHistory} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import "./Login.css"
 
@@ -12,7 +12,7 @@ const Login = () => {
 
 
     const location = useLocation();
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -26,7 +26,7 @@ const Login = () => {
 
 
     const handleSubmit = (e) => {
-        loginUser(loginData.email, loginData.password, location, navigate);
+        loginUser(loginData.email, loginData.password, location, history);
         alert("submited")
 
         e.preventDefault()

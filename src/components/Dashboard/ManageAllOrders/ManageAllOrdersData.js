@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-
+// "_id": "618cb7b7c5432d774f32a5b2",
+// "name": "arif reza",
+// "email": "arif.reza3126@gmail.com",
+// "address": "home#44 road#8 block#E Kalshi, Mirpur, Dhaka, Bangladesh.",
+// "Model": "SANG BLEU II GREY CERAMIC",
+// "Brand": "Hublot",
+// "Price": 899
 const ManageAllOrdersData = (props) => {
     const {_id, name, email, address, Model, Brand, Price, status} = props.orderall;
     const [user, setUser] = useState({})

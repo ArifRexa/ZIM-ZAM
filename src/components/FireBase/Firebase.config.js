@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyB3z5hvUja-h-9ILARdS7SvGAUqaccyaHg",
-    authDomain: "zim-zam-188be.firebaseapp.com",
-    projectId: "zim-zam-188be",
-    storageBucket: "zim-zam-188be.appspot.com",
-    messagingSenderId: "1067331295473",
-    appId: "1:1067331295473:web:4b4c9a4dc936e1d7643150"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 
 };
 
