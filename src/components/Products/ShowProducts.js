@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ShowProducts = props => {
-    const {img,price,name,des} = props.product
+    const {_id,img,price,name,des} = props.product
     return (
         <div>
              <Col>
@@ -15,6 +16,7 @@ const ShowProducts = props => {
                                    {des}
                                 </Card.Text>
                             </Card.Body>
+                            <Link to={`/placeorder/${_id}`}><Button style={{width:'100%', borderRadius:'30px'}}>Place Order</Button></Link>
                         </Card>
                     </Col>
         </div>
